@@ -1,6 +1,14 @@
+import { Button } from "@/components/Button";
+import { ArrowRight, Download } from "lucide-react";
+import { SiGithub } from "react-icons/si";
+import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
+
 export const Hero = () => {
+  const socials = [
+  { icon: SiGithub, href: "https://github.com/YcW12343211" }
+];
   return (
-    <section className="relatic min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* bg */}
       <div className="absolute inset-0">
         <img 
@@ -38,8 +46,40 @@ export const Hero = () => {
                 Software Engineer • React Specialist
               </span>
             </div>
-          </div>
-          
+            {/* Headline */}
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
+                Crafting <span className="text-primary glow-text">digital</span>
+                <br />
+                experiences with
+                <br />
+                <span className="font-serif italic font-normal text-white">
+                  precision.
+                </span>
+              </h1>
+              <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
+                Hi, I'm Yichao Wang - a software engineer specializing in ...
+              </p>
+            </div>
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
+              <Button size="lg">Contact Me <ArrowRight className="w-5 h-5"/></Button>
+              <AnimatedBorderButton />
+            </div>
+
+            {/* Social Links */}
+            <div>
+              <span>Follow: </span>     
+              {socials.map((social, idx) => {
+                const Icon = social.icon;
+                return (
+                  <a key={idx} href={social.href}>
+                    <Icon className="w-5 h-5" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>        
           {/* Right Column - Profile Image */}
         </div>
       </div>
